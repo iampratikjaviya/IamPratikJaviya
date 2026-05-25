@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratik Javiya — Creative Strategist & Social Media Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0C0B09;
+  --surface: #111009;
+  --surface2: #181510;
+  --gold: #C8A96E;
+  --gold-light: #E8D4A0;
+  --gold-dim: #6B5A3A;
+  --text: #F0EAE0;
+  --text-muted: #8A8278;
+  --text-dim: #4E4A44;
+  --border: rgba(200,169,110,0.18);
+  --border-subtle: rgba(240,234,224,0.06);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 4rem;display:flex;align-items:center;justify-content:space-between;transition:background 0.4s,border-bottom 0.4s;}
+nav.scrolled{background:rgba(12,11,9,0.94);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:0.1em;color:var(--gold);text-decoration:none;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 4rem 4rem;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-20%;right:-5%;width:55%;height:110%;background:radial-gradient(ellipse at 60% 40%,rgba(200,169,110,0.05) 0%,transparent 70%);pointer-events:none;}
+.hero-bg-number{position:absolute;right:2rem;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:28vw;font-weight:300;color:rgba(200,169,110,0.035);line-height:1;user-select:none;letter-spacing:-0.04em;pointer-events:none;}
+.hero-inner{max-width:880px;position:relative;z-index:1;}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem;}
+.hero-eyebrow::before{content:'';display:inline-block;width:36px;height:1px;background:var(--gold);}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(4.5rem,11vw,9.5rem);font-weight:300;line-height:0.88;letter-spacing:-0.02em;margin-bottom:1rem;}
+.hero-name .first{display:block;color:var(--text);}
+.hero-name .last{display:block;font-style:italic;color:var(--gold);}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:400;font-style:italic;color:var(--text-muted);margin:1.8rem 0 0.6rem;letter-spacing:0.02em;}
+.hero-industries{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2.8rem;}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{padding:0.9rem 2.3rem;background:var(--gold);color:#0C0B09;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;transition:background 0.2s;}
+.btn-primary:hover{background:var(--gold-light);}
+.btn-outline{padding:0.9rem 2.3rem;border:0.5px solid var(--gold-dim);color:var(--gold);text-decoration:none;font-size:0.72rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--gold);background:rgba(200,169,110,0.06);}
+
+/* STATS BAR */
+.stats-bar{border-top:0.5px solid var(--border-subtle);border-bottom:0.5px solid var(--border-subtle);display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{text-align:center;padding:2.8rem 1rem;border-right:0.5px solid var(--border-subtle);}
+.stat-item:last-child{border-right:none;}
+.stat-number{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.4rem;}
+.stat-sup{font-size:1.6rem;vertical-align:super;}
+.stat-label{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-dim);}
+
+/* SECTION SHARED */
+section{padding:7rem 4rem;}
+.section-label{font-size:0.65rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+.section-label::after{content:'';flex:0 0 60px;height:0.5px;background:var(--border);}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.8rem);font-weight:300;line-height:1.05;letter-spacing:-0.01em;}
+.section-heading em{font-style:italic;color:var(--gold);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:center;}
+.about-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:300;font-style:italic;line-height:1.35;border-left:1px solid var(--gold);padding-left:2rem;color:var(--text);}
+.about-text{color:var(--text-muted);line-height:1.9;font-size:0.97rem;}
+.about-text p+p{margin-top:1.2rem;}
+
+/* WORK */
+.work-section{background:var(--surface);padding-bottom:5rem;}
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;}
+.work-item{position:relative;overflow:hidden;cursor:pointer;background:var(--surface2);display:block;text-decoration:none;}
+.work-item:nth-child(1){grid-column:span 7;height:420px;}
+.work-item:nth-child(2){grid-column:span 5;height:210px;}
+.work-item:nth-child(3){grid-column:span 5;height:210px;}
+.work-item:nth-child(4){grid-column:span 4;height:280px;}
+.work-item:nth-child(5){grid-column:span 4;height:280px;}
+.work-item:nth-child(6){grid-column:span 4;height:280px;}
+.work-item:nth-child(7){grid-column:span 6;height:240px;}
+.work-item:nth-child(8){grid-column:span 6;height:240px;}
+.work-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94),filter 0.4s;filter:brightness(0.7) saturate(0.8);}
+.work-item:hover img{transform:scale(1.06);filter:brightness(0.88) saturate(1);}
+.work-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.1) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;opacity:0;transition:opacity 0.35s;}
+.work-item:hover .work-overlay{opacity:1;}
+.work-item:nth-child(1) .work-overlay{opacity:1;}
+.work-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:0.3rem;line-height:1.2;}
+.work-cat{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+.work-cta{text-align:center;margin-top:3rem;}
+
+/* EXPERIENCE */
+.exp-header{display:grid;grid-template-columns:1fr 1.8fr;gap:4rem;margin-bottom:5rem;align-items:end;}
+.exp-header p{color:var(--text-muted);line-height:1.85;font-size:0.95rem;}
+.timeline{position:relative;padding-left:1px;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0.5px;background:var(--border);}
+.t-item{padding-left:3rem;padding-bottom:3.2rem;position:relative;}
+.t-item::before{content:'';position:absolute;left:-5px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2.5px solid var(--bg);transition:transform 0.2s;}
+.t-item:hover::before{transform:scale(1.3);}
+.t-item:last-child{padding-bottom:0;}
+.t-date{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
+.t-role{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;margin-bottom:0.15rem;line-height:1.2;}
+.t-company{font-size:0.8rem;color:var(--text-muted);margin-bottom:0.8rem;letter-spacing:0.04em;}
+.t-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.75;max-width:560px;}
+
+/* SKILLS */
+.skills-section{background:var(--surface);}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:4rem;}
+.skill-group h3{font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:0.5px solid var(--border);}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.skill-tag{padding:0.38rem 0.9rem;border:0.5px solid var(--border);color:var(--text-muted);font-size:0.76rem;letter-spacing:0.04em;transition:all 0.2s;cursor:default;}
+.skill-tag:hover{border-color:var(--gold-dim);color:var(--gold);}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;margin-top:4rem;}
+.tool-group h3{font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:0.5px solid var(--border);}
+.tool-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.tool-list li{font-size:0.8rem;color:var(--text-muted);padding:0.32rem 0.75rem;background:var(--surface2);border:0.5px solid var(--border-subtle);transition:border-color 0.2s;}
+.tool-list li:hover{border-color:var(--border);}
+
+/* CERTIFICATIONS */
+.cert-section{padding:6rem 4rem;}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.cert-card{padding:2rem;border:0.5px solid var(--border);background:var(--surface2);transition:border-color 0.25s,transform 0.25s;}
+.cert-card:hover{border-color:var(--gold-dim);transform:translateY(-2px);}
+.cert-year{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);opacity:0.35;line-height:1;margin-bottom:0.8rem;}
+.cert-name{font-size:0.82rem;color:var(--text);line-height:1.5;}
+
+/* CONTACT */
+.contact-section{padding:9rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.contact-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:18vw;font-weight:300;color:rgba(200,169,110,0.025);white-space:nowrap;pointer-events:none;user-select:none;}
+.contact-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6.5rem);font-weight:300;line-height:1.0;margin-bottom:1.5rem;position:relative;z-index:1;}
+.contact-heading em{font-style:italic;color:var(--gold);}
+.contact-sub{color:var(--text-muted);margin-bottom:3rem;font-size:0.95rem;position:relative;z-index:1;}
+.contact-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:3rem;position:relative;z-index:1;}
+.contact-link{color:var(--text-muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem;}
+.contact-link:hover{color:var(--gold);}
+.contact-link::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;opacity:0.5;}
+.contact-btn{position:relative;z-index:1;display:inline-block;}
+
+/* FOOTER */
+footer{padding:2rem 4rem;border-top:0.5px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center;font-size:0.68rem;color:var(--text-dim);letter-spacing:0.1em;}
+
+/* ANIMATION */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.85s ease,transform 0.85s ease;}
+.fade-up.in{opacity:1;transform:translateY(0);}
+.fade-up.delay-1{transition-delay:0.1s;}
+.fade-up.delay-2{transition-delay:0.2s;}
+.fade-up.delay-3{transition-delay:0.3s;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem;}
+  section{padding:4.5rem 1.5rem;}
+  .hero{padding:6rem 1.5rem 3rem;}
+  .hero-bg-number{display:none;}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(2){border-right:none;}
+  .stat-item:nth-child(3){border-top:0.5px solid var(--border-subtle);}
+  .stat-item:nth-child(4){border-top:0.5px solid var(--border-subtle);border-right:none;}
+  .work-grid{display:flex;flex-direction:column;}
+  .work-item{height:260px!important;}
+  .exp-header{grid-template-columns:1fr;gap:2rem;margin-bottom:3rem;}
+  .skills-grid{grid-template-columns:1fr;}
+  .tools-grid{grid-template-columns:repeat(2,1fr);}
+  .cert-grid{grid-template-columns:1fr;}
+  .contact-section{padding:5rem 1.5rem;}
+  .contact-bg{display:none;}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#home" class="nav-logo">PJ</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-bg-number">12</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Creative Strategist &amp; Social Media Manager</div>
+    <h1 class="hero-name">
+      <span class="first">PRATIK</span>
+      <span class="last">Javiya</span>
+    </h1>
+    <p class="hero-title">Turning brand stories into content people actually stop for.</p>
+    <p class="hero-industries">Fashion &middot; Luxury &middot; Lifestyle &middot; F&amp;B &middot; Pune, India</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn-primary">View Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number">12<span class="stat-sup">+</span></div>
+    <div class="stat-label">Years Experience</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">5</div>
+    <div class="stat-label">Platforms Mastered</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">3</div>
+    <div class="stat-label">Countries</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">4</div>
+    <div class="stat-label">Industries</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="fade-up">
+      <blockquote class="about-quote">
+        "Your brand has a story. I know how to make the world stop and listen."
+      </blockquote>
+    </div>
+    <div class="fade-up delay-1">
+      <div class="about-text">
+        <p>Part strategist, part visual storyteller, part data obsessive — I've spent 12+ years obsessing over one thing: making people feel something when they encounter a brand.</p>
+        <p>It started with photography. Learning light, composition, and how a single frame can tell an entire story. That curiosity grew into leading studios, directing campaigns, and shaping the social presence of luxury and lifestyle brands across the Middle East and India.</p>
+        <p>Today I bring a photographer's eye, a marketer's mind, and an AI-powered edge to every engagement — building social presences that grow audiences, drive engagement, and leave a mark that lasts.</p>
+        <p style="margin-top:2rem;">
+          <a href="mailto:pjaviya.411@gmail.com" class="btn-primary" style="display:inline-block;">Email Me</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work-section" id="work">
+  <div class="section-label">Selected Work</div>
+  <div class="work-grid fade-up">
+
+    <a class="work-item" href="https://www.behance.net/gallery/244572877/Urban-Gabru-Surya-Kumar-Yadav" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/6b6469244572877.699ad47c319aa.jpg" alt="Urban Gabru × Surya Kumar Yadav" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">Urban Gabru × Surya Kumar Yadav</div>
+        <div class="work-cat">Campaign Direction &middot; Fashion</div>
+      </div>
+    </a>
+
+    <a class="work-item" href="https://www.behance.net/gallery/244569533/NICE-(Ramadan-Campaign-Saudi-Arabia)" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/b8c6dd244569533.Y3JvcCwyMTc4LDE3MDQsMzkzLDA.png" alt="NICE Ramadan Campaign" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">NICE — Ramadan Campaign</div>
+        <div class="work-cat">Social Media &middot; Saudi Arabia</div>
+      </div>
+    </a>
+
+    <a class="work-item" href="https://www.behance.net/gallery/244569877/Ressence-X-Seddiqi" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/2e34b5244569877.699abd2cdda0c.png" alt="Ressence X Seddiqi" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">Ressence × Seddiqi</div>
+        <div class="work-cat">Luxury &middot; Brand Storytelling</div>
+      </div>
+    </a>
+
+    <a class="work-item" href="https://www.behance.net/gallery/244570741/DEFINING-LEGACY" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/d73fa3244570741.699ac450bc2da.jpg" alt="Defining Legacy" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">Defining Legacy</div>
+        <div class="work-cat">Creative Direction &middot; Luxury</div>
+      </div>
+    </a>
+
+    <a class="work-item" href="https://www.behance.net/gallery/244570543/Under-the-Same-Crescent" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/a7ac29244570543.699ac2fd0f870.jpg" alt="Under the Same Crescent" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">Under the Same Crescent</div>
+        <div class="work-cat">Cultural Campaign</div>
+      </div>
+    </a>
+
+    <a class="work-item" href="https://www.behance.net/gallery/244570433/Mirage-of-Time" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/f76433244570433.699ac2193b2c3.jpg" alt="Mirage of Time" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">Mirage of Time</div>
+        <div class="work-cat">Visual Storytelling</div>
+      </div>
+    </a>
+
+    <a class="work-item" href="https://www.behance.net/gallery/244569889/Whispers-from-the-Kitchen" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/5efeae244569889.699abd5897f80.jpg" alt="Whispers from the Kitchen" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">Whispers from the Kitchen</div>
+        <div class="work-cat">F&amp;B &middot; Content Strategy</div>
+      </div>
+    </a>
+
+    <a class="work-item" href="https://www.behance.net/gallery/244571265/URBAN-PULSE" target="_blank" rel="noopener">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/404/d97a09244571265.699ac86218b55.jpg" alt="Urban Pulse" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-title">Urban Pulse</div>
+        <div class="work-cat">Lifestyle &middot; Community</div>
+      </div>
+    </a>
+
+  </div>
+  <div class="work-cta">
+    <a href="https://www.behance.net/pjaviya411e151" class="btn-outline" target="_blank" rel="noopener">View Full Portfolio on Behance</a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-header">
+    <div>
+      <div class="section-label">Experience</div>
+      <h2 class="section-heading">12 Years of<br><em>Brand Building</em></h2>
+    </div>
+    <div>
+      <p>From fashion photography studios in the UAE to directing multi-channel social media strategies for luxury brands across the Middle East and India — a career built on visual mastery, strategic thinking, and measurable results.</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="t-item fade-up">
+      <div class="t-date">Oct 2025 — Present</div>
+      <div class="t-role">Creative Strategist &amp; Director</div>
+      <div class="t-company">Self Employed · Pune, India</div>
+      <div class="t-desc">Building compelling brand narratives and visual identities across platforms. Leveraging cutting-edge AI tools for faster, smarter creative output. End-to-end project management from concept to delivery across all brand touchpoints.</div>
+    </div>
+    <div class="t-item fade-up delay-1">
+      <div class="t-date">Jul 2025 — Oct 2025</div>
+      <div class="t-role">Senior Social Media Content Specialist</div>
+      <div class="t-company">LPS Brands</div>
+      <div class="t-desc">Developed and executed multi-channel social media content strategies for luxury and lifestyle brand portfolios. Monitored KPIs including reach, impressions, engagement rate, and follower growth; produced monthly analytics reports with actionable insights.</div>
+    </div>
+    <div class="t-item fade-up delay-2">
+      <div class="t-date">Jun 2023 — Jun 2025</div>
+      <div class="t-role">Social Media Content Strategist &amp; Creative Photographer</div>
+      <div class="t-company">Hashtag Social Media Agency</div>
+      <div class="t-desc">Managed social media accounts for multiple clients across fashion, F&amp;B, and lifestyle sectors. Produced high-quality photo and video content optimized for platform algorithms. Conducted competitor analysis and social audits; collaborated with influencers for campaign launches.</div>
+    </div>
+    <div class="t-item fade-up">
+      <div class="t-date">Oct 2022 — Jun 2023</div>
+      <div class="t-role">Digital Content &amp; Social Media Support Specialist</div>
+      <div class="t-company">Landmark Group</div>
+      <div class="t-desc">Supported social media and digital marketing for one of the region's largest retail groups. Planned and rolled out seasonal social media campaigns, coordinating with marketing and retail teams.</div>
+    </div>
+    <div class="t-item fade-up delay-1">
+      <div class="t-date">Mar 2018 — Oct 2022</div>
+      <div class="t-role">Fashion Photographer</div>
+      <div class="t-company">Landmark Group · UAE</div>
+      <div class="t-desc">Created product photography and visual content across social media, e-commerce, and digital marketing campaigns for fashion and lifestyle brands. Maintained brand aesthetic and visual consistency across all digital touchpoints.</div>
+    </div>
+    <div class="t-item fade-up delay-2">
+      <div class="t-date">Nov 2016 — Feb 2018</div>
+      <div class="t-role">Social Media Visual Content Specialist</div>
+      <div class="t-company">OpenKart.com · UAE</div>
+      <div class="t-desc">Produced and managed social media-ready product content for a growing e-commerce platform. Created visually compelling imagery optimized for social commerce, driving click-through rates and purchase intent.</div>
+    </div>
+    <div class="t-item fade-up">
+      <div class="t-date">Aug 2015 — Jul 2016</div>
+      <div class="t-role">Product &amp; Fashion Photographer</div>
+      <div class="t-company">Prione Business Services (Amazon.in) · India</div>
+      <div class="t-desc">Developed creative product content for social media and digital platforms. Coordinated with internal stakeholders to maintain consistent brand messaging across social channels.</div>
+    </div>
+    <div class="t-item fade-up delay-1">
+      <div class="t-date">Feb 2013 — Jul 2015</div>
+      <div class="t-role">Freelance Social Media Photographer &amp; Consultant</div>
+      <div class="t-company">Self Employed</div>
+      <div class="t-desc">Provided freelance photography and social media consulting for small businesses and startups. Built brand identities and social media presence from the ground up across lifestyle and retail sectors.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label">Core Competencies</div>
+  <h2 class="section-heading" style="margin-bottom:0;">The <em>Craft</em></h2>
+  <div class="skills-grid">
+    <div class="skill-group fade-up">
+      <h3>Strategy</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Social Media Strategy</span>
+        <span class="skill-tag">Campaign Planning &amp; Execution</span>
+        <span class="skill-tag">Brand Storytelling</span>
+        <span class="skill-tag">Audience Growth</span>
+        <span class="skill-tag">SEO-Driven Content</span>
+        <span class="skill-tag">Paid Social Advertising</span>
+        <span class="skill-tag">Editorial Calendar Management</span>
+        <span class="skill-tag">Content Curation</span>
+      </div>
+    </div>
+    <div class="skill-group fade-up delay-1">
+      <h3>Creative</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Creative Direction</span>
+        <span class="skill-tag">Visual Identity &amp; Positioning</span>
+        <span class="skill-tag">Content Creation</span>
+        <span class="skill-tag">Photography</span>
+        <span class="skill-tag">Video Content</span>
+        <span class="skill-tag">Influencer Collaboration</span>
+        <span class="skill-tag">Multi-Platform Content</span>
+        <span class="skill-tag">AI-Powered Execution</span>
+      </div>
+    </div>
+    <div class="skill-group fade-up delay-2">
+      <h3>Analytics &amp; Leadership</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Social Media Analytics</span>
+        <span class="skill-tag">KPI Reporting</span>
+        <span class="skill-tag">Community Management</span>
+        <span class="skill-tag">Competitor Analysis</span>
+        <span class="skill-tag">Social Media Audits</span>
+        <span class="skill-tag">Cross-Functional Leadership</span>
+        <span class="skill-tag">Project Management</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:5rem;">
+    <div class="section-label">Tools &amp; Platforms</div>
+    <div class="tools-grid fade-up">
+      <div class="tool-group">
+        <h3>Social Platforms</h3>
+        <ul class="tool-list">
+          <li>Instagram</li>
+          <li>Facebook</li>
+          <li>LinkedIn</li>
+          <li>YouTube</li>
+          <li>Pinterest</li>
+          <li>Twitter / X</li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <h3>Design &amp; Content</h3>
+        <ul class="tool-list">
+          <li>Adobe Photoshop</li>
+          <li>Adobe Illustrator</li>
+          <li>Adobe InDesign</li>
+          <li>Adobe Lightroom</li>
+          <li>Adobe XD</li>
+          <li>Canva</li>
+          <li>AI Tools</li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <h3>Analytics &amp; Scheduling</h3>
+        <ul class="tool-list">
+          <li>Meta Business Suite</li>
+          <li>Hootsuite</li>
+          <li>Buffer</li>
+          <li>Google Analytics</li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <h3>Project Management</h3>
+        <ul class="tool-list">
+          <li>Trello</li>
+          <li>Notion</li>
+          <li>Microsoft Office Suite</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="cert-section" id="certifications">
+  <div class="section-label">Certifications &amp; Education</div>
+  <div class="cert-grid fade-up">
+    <div class="cert-card">
+      <div class="cert-year">2024</div>
+      <div class="cert-name">Social Media Management</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">2024</div>
+      <div class="cert-name">Google UX Design</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">2021</div>
+      <div class="cert-name">Master Digital Product Design: UX Research &amp; UI Design</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">2021</div>
+      <div class="cert-name">Fundamentals of Digital Marketing</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">2020</div>
+      <div class="cert-name">Adobe CC Masterclass: Photoshop, Illustrator, XD &amp; InDesign</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">2013</div>
+      <div class="cert-name">Bachelor of Commerce — University of Pune</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-bg">CONNECT</div>
+  <h2 class="contact-heading">Let's <em>Create</em><br>Something Unforgettable</h2>
+  <p class="contact-sub">Open to full-time opportunities, freelance projects, and brand collaborations.</p>
+  <div class="contact-links">
+    <a href="mailto:pjaviya.411@gmail.com" class="contact-link">pjaviya.411@gmail.com</a>
+    <a href="tel:+918956646733" class="contact-link">+91 89566 46733</a>
+    <a href="https://www.behance.net/pjaviya411e151" class="contact-link" target="_blank" rel="noopener">Behance</a>
+    <a href="http://linkedin.com/in/pratik-javiya-7a803b51/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="http://instagram.com/pratik_javiya" class="contact-link" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div class="contact-btn">
+    <a href="mailto:pjaviya.411@gmail.com" class="btn-primary">Start a Conversation</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>&copy; 2025 Pratik Javiya</span>
+  <span>Creative Strategist &amp; Social Media Manager</span>
+  <span>Pune, India</span>
+</footer>
+
+<script>
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, {passive: true});
+
+const faders = document.querySelectorAll('.fade-up');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); } });
+}, { threshold: 0.08 });
+faders.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
